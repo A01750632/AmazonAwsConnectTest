@@ -8,6 +8,7 @@
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
     <div id="container-div" style="width: 400px; height: 800px;"></div>
+    <button type="button" onclick="terminate2()">Cerrar sesión</button>
     <script type="text/javascript">
       var containerDiv = document.getElementById("container-div");
       var instanceURL = "https://itesm2022amazonconnect.my.connect.aws/connect/ccp-v2/";
@@ -39,7 +40,17 @@
           ccpSynTimeout: 3000, //optional, defaults to 1000 (ms)
           ccpLoadTimeout: 10000 //optional, defaults to 5000 (ms)
          });
+
       }
+    </script>
+    <script type="text/javascript">
+      function terminate2(){
+        fetch("https://itesm2022amazonconnect.my.connect.aws/connect/logout", { credentials: 'include', mode: 'no-cors'})
+        .then(() => {
+          const eventBus = connect.core.getEventBus();
+          eventBus.trigger(connect.EventType.TERMINATE);
+        });
+      };
     </script>
   </body>
 </html>
