@@ -20,6 +20,11 @@ app.get('/principal',(req,res)=>{
     res.sendFile(path.join(__dirname,'views','hola.html'))
 })
 
+app.get('/otro',(req,res)=>{
+    console.log("Entre");
+    res.sendFile(path.join(__dirname,'views','inicio.html'))
+})
+
 //No es necesario que tengan tanto el protocolo http y https funcionando al mismo tiempo
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
