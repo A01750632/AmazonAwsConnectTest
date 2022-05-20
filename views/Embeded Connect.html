@@ -9,6 +9,7 @@
   <body onload="init()">
     <div id="container-div" style="width: 400px; height: 800px;"></div>
     <button type="button" onclick="terminate2()">Cerrar sesión</button>
+    <button type="button" onclick="Ayuda()">Inicializado</button>
     <script type="text/javascript">
       var containerDiv = document.getElementById("container-div");
       var instanceURL = "https://itesm2022amazonconnect.my.connect.aws/connect/ccp-v2/";
@@ -41,6 +42,12 @@
           ccpLoadTimeout: 10000 //optional, defaults to 5000 (ms)
          });
 
+         connect.core.onAccessDenied(function auth2(){
+         
+         console.log("no pudiste entrar XD")
+         })
+         
+
       }
     </script>
     <script type="text/javascript">
@@ -50,6 +57,15 @@
           const eventBus = connect.core.getEventBus();
           eventBus.trigger(connect.EventType.TERMINATE);
         });
+      };
+    </script>
+    <script type="text/javascript">
+      function Ayuda(){
+        console.log("si estoy")
+        connect.core.onInitialized(function() { 
+          console.log("si estoy inicializado")
+        });
+        console.log("Ya acabe")
       };
     </script>
   </body>
