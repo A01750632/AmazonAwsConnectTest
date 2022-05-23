@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <script src="https://web-documents-embed.s3.us-west-2.amazonaws.com/connect-streams-min.js"></script>
-    <title>No funciona</title>
+    <title>test</title>
   </head>
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
@@ -41,10 +41,18 @@
           ccpLoadTimeout: 10000 //optional, defaults to 5000 (ms)
          });
          
-         console.log("Hola")
-         connect.core.onAuthFail(function() {
-          alert("Entre al AuthFail") 
-           Ayuda();
+         connect.contact(function(contact){
+           contact.onIncoming(function(contact){
+           });
+           contact.onRefresh(function(contact){
+           });
+           contact.onAccepted(function(contact){
+           });
+           contact.onEnded(function(contact){
+           });
+           contact.onConnected(function(contact){
+             console.log(`onConnected($(contact.getContactId()})`);
+           });
          });
       }
     </script>
@@ -53,6 +61,7 @@
         fetch("https://itesm2022amazonconnect.my.connect.aws/connect/logout", { credentials: 'include', mode: 'no-cors'})
         .then(() => {
           const eventBus = connect.core.getEventBus();
+          console.log(eventBus)
           eventBus.trigger(connect.EventType.TERMINATE);
         });
       };
