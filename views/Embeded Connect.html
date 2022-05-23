@@ -59,6 +59,8 @@
         connect.agent(function(agent) {
           var states = agent.getAgentStates();
           console.log("here are your states: " + JSON.stringify(states));
+          var agentState = agent.getState()
+          window.alert((`${agentState.name}`))
         });
       }
     </script>
