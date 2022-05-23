@@ -43,7 +43,7 @@
          
          console.log("Hola")
          connect.core.onAuthFail(function() {
-          console.log("Entre al AuthFail") 
+          alert("Entre al AuthFail") 
            Ayuda();
          });
       }
@@ -59,7 +59,7 @@
     </script>
     <script type="text/javascript">
       function Ayuda(){
-        console.log("si estoy")
+        alert("si estoy") 
         connect.core.onInitialized(function() { 
           console.log("si estoy inicializado")
         });
