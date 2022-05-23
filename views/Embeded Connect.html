@@ -51,9 +51,14 @@
            contact.onEnded(function(contact){
            });
            contact.onConnected(function(contact){
-             console.log(`onConnected($(contact.getContactId()})`);
+             console.log(`onConnected(${contact.getContactId()})`);
            });
          });
+
+        connect.agent(function(agent) {
+          var states = agent.getAgentStates();
+          console.log("here are your states: " + JSON.stringify(states));
+        });
       }
     </script>
     <script type="text/javascript">
