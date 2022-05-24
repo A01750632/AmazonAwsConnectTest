@@ -49,6 +49,18 @@
            contact.onAccepted(function(contact){
            });
            contact.onEnded(function(contact){
+            connect.agent(function(agent) {	
+              var offlineState = agent.getAgentStates().filter(function (state) { 
+                return state.type === connect.AgentStateType.OFFLINE; })[0];
+              agent.setState(offlineState, {
+                success: function () {
+                  console.log("Set agent status to Offline via Streams")
+                },
+                failure: function () {
+                  console.log("Failed to set agent status to Offline via Streams")
+                }
+              });
+            });
            });
            contact.onConnected(function(contact){
              console.log(`onConnected(${contact.getContactId()})`);
