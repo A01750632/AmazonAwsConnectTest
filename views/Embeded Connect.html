@@ -79,6 +79,9 @@
             window.alert("Este es el after Call")
            });
         });
+        connect.core.onInitialized(function() { 
+          window.alert("si estoy inicializado")
+        });
       }
     </script>
     <script type="text/javascript">
@@ -89,15 +92,6 @@
           console.log(eventBus)
           eventBus.trigger(connect.EventType.TERMINATE);
         });
-      };
-    </script>
-    <script type="text/javascript">
-      function Ayuda(){
-        alert("si estoy") 
-        connect.core.onInitialized(function() { 
-          console.log("si estoy inicializado")
-        });
-        console.log("Ya acabe")
       };
     </script>
   </body>
