@@ -71,7 +71,9 @@
         connect.agent(function(agent) {
           var states = agent.getAgentStates();
           console.log("here are your states: " + JSON.stringify(states));
-          window.alert((`${agent.getname()}`));
+          //Name should be on a var
+          var name = agent.getName();
+          window.alert(name)
           agent.onAfterCallWork(function(agent) {
             window.alert("Este es el after Call")
            });
