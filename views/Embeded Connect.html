@@ -65,7 +65,7 @@
               var state = agent.getState();
               window.alert(state)
             });
-            window.alert(state)
+            window.alert("onEndedState" + state)
             window.alert("Ended Call")
            });
            contact.onConnected(function(contact){
@@ -86,9 +86,9 @@
             window.alert(state)
            });
         });
-        connect.core.onInitialized(function() { 
+        /*connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
-        });
+        });*/
       }
     </script>
     <script type="text/javascript">
