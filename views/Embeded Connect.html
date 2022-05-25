@@ -49,7 +49,7 @@
            contact.onAccepted(function(contact){
            });
            contact.onEnded(function(contact){
-            connect.agent(function(agent) {	
+            /*connect.agent(function(agent) {	
               var offlineState = agent.getAgentStates().filter(function (state) { 
                 return state.type === connect.AgentStateType.OFFLINE; })[0];
               agent.setState(offlineState, {
@@ -60,7 +60,8 @@
                   console.log("Failed to set agent status to Offline via Streams")
                 }
               });
-            });
+            });*/
+            window.alert("Ended Call")
            });
            contact.onConnected(function(contact){
              console.log(`onConnected(${contact.getContactId()})`);
@@ -73,7 +74,7 @@
           console.log("here are your states: " + JSON.stringify(states));
           //Name should be on a var
           var name = agent.getName();
-          window.alert(name)
+          window.alert("Hello " + name)
           agent.onAfterCallWork(function(agent) {
             window.alert("Este es el after Call")
            });
