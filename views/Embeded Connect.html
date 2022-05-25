@@ -61,6 +61,11 @@
                 }
               });
             });*/
+            connect.agent(function(agent) {
+              var state = agent.getState();
+              window.alert(state)
+            });
+            window.alert(state)
             window.alert("Ended Call")
            });
            contact.onConnected(function(contact){
@@ -77,6 +82,8 @@
           window.alert("Hello " + name)
           agent.onAfterCallWork(function(agent) {
             window.alert("Este es el after Call")
+            var state = agent.getState();
+            window.alert(state)
            });
         });
         connect.core.onInitialized(function() { 
