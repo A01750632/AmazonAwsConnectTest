@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <script src="https://web-documents-embed.s3.us-west-2.amazonaws.com/connect-streams-min.js"></script>
-    <title>Agent state</title>
+    <title>Ended test call</title>
   </head>
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
@@ -63,7 +63,7 @@
             });*/
             connect.agent(function(agent) {
               var state = agent.getState();
-              window.alert(state)
+              window.alert("Soy el Ended " + state)
             });
             window.alert("onEndedState" + state)
             window.alert("Ended Call")
