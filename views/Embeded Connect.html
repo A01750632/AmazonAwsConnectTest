@@ -42,6 +42,7 @@
          });
          
          connect.contact(function(contact){
+           var estadoContacto = contact.getState();
            contact.onIncoming(function(contact){
            });
            contact.onRefresh(function(contact){
@@ -65,8 +66,6 @@
               var state = agent.getState();
               window.alert("Soy el Ended " + state)
             });
-            window.alert("onEndedState" + state)
-            window.alert("Ended Call")
            });
            contact.onConnected(function(contact){
              console.log(`onConnected(${contact.getContactId()})`);
@@ -91,6 +90,11 @@
           var state = agent.getState();
             window.alert(state)
         });
+        const eventBus = connect.core.getEventBus();
+        eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
+        window.alert('este es el clear');
+        // Do stuff...
+});
       }
     </script>
     <script type="text/javascript">
