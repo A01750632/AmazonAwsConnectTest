@@ -64,7 +64,7 @@
             });*/
             connect.agent(function(agent) {
               var state = agent.getState();
-              window.alert("Soy el Ended " + state)
+              window.alert("Soy el Ended " + state.name)
             });
            });
            contact.onConnected(function(contact){
@@ -80,21 +80,20 @@
           var name = agent.getName();
           window.alert("Hello " + name)
           agent.onAfterCallWork(function(agent) {
-            window.alert("Este es el after Call")
             var state = agent.getState();
-            window.alert(state)
+            window.alert("Este es el after Call" + state.name)
            });
         });
         connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
           var state = agent.getState();
-            window.alert(state)
+            window.alert(state.name)
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
         window.alert('este es el clear');
         // Do stuff...
-});
+      });
       }
     </script>
     <script type="text/javascript">
