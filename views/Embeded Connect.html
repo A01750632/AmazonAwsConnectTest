@@ -64,7 +64,7 @@
             });*/
             connect.agent(function(agent) {
               var state = agent.getState();
-              window.alert("Soy el Ended " + state.name())
+              window.alert("Soy el Ended " + state.name)
             });
            });
            contact.onConnected(function(contact){
@@ -88,10 +88,9 @@
           window.alert("si estoy inicializado")
           connect.agent(function(agent) {
             var state = agent.getState();
-            window.alert("si paso al state")
             window.alert(state.name)
-            console.log("ESTE ES EL EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESTADO" +state.name)
-          });
+            var agentChange = agent.onStateChange()
+            window.alert("Name: " + agent.getName() + "Old State: " + agentChange.oldState + "New State" + agentChange.newState )
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
