@@ -64,7 +64,7 @@
             });*/
             connect.agent(function(agent) {
               var state = agent.getState();
-              window.alert("Soy el Ended " + state.name)
+              window.alert("Soy el Ended " + state.name())
             });
            });
            contact.onConnected(function(contact){
@@ -87,7 +87,8 @@
         connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
           var state = agent.getState();
-            window.alert(state.name)
+          window.alert(state.name())
+          console.log(state.name)
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
