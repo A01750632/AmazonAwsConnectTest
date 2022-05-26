@@ -86,9 +86,11 @@
             window.alert(state)
            });
         });
-        /*connect.core.onInitialized(function() { 
+        connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
-        });*/
+          var state = agent.getState();
+            window.alert(state)
+        });
       }
     </script>
     <script type="text/javascript">
