@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <script src="https://web-documents-embed.s3.us-west-2.amazonaws.com/connect-streams-min.js"></script>
-    <title>Ended test call</title>
+    <title>STATES</title>
   </head>
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
@@ -86,10 +86,12 @@
         });
         connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
-          var state = agent.getState();
-          window.alert("si paso al state")
-          window.alert(state.name)
-          console.log("ESTE ES EL EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESTADO" +state.name)
+          connect.agent(function(agent) {
+            var state = agent.getState();
+            window.alert("si paso al state")
+            window.alert(state.name)
+            console.log("ESTE ES EL EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESTADO" +state.name)
+          });
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
