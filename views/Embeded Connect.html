@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <script src="https://web-documents-embed.s3.us-west-2.amazonaws.com/connect-streams-min.js"></script>
-    <title>STATES</title>
+    <title>ON CHANGE STATES</title>
   </head>
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
@@ -91,6 +91,7 @@
             window.alert(state.name)
             var agentChange = agent.onStateChange()
             window.alert("Name: " + agent.getName() + "Old State: " + agentChange.oldState + "New State" + agentChange.newState )
+          });
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
