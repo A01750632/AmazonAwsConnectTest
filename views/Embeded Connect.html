@@ -87,8 +87,9 @@
         connect.core.onInitialized(function() { 
           window.alert("si estoy inicializado")
           var state = agent.getState();
-          window.alert("ESTE ES EL EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESTADO" + state.name)
-          console.log(state.name)
+          window.alert("si paso al state")
+          window.alert(state.name)
+          console.log("ESTE ES EL EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESTADO" +state.name)
         });
         const eventBus = connect.core.getEventBus();
         eventBus.subscribe(connect.ClientMethods.CLEAR_CONTACT, () => {
